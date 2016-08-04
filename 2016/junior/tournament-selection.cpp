@@ -11,7 +11,7 @@ void TakeInput()
 		cin >> s;
 		switch (s){
 			case 'W':
-			++counter;  // counter to count Winds
+			++counter;  // counter to count Wins
 			break;
 		}
 	}
