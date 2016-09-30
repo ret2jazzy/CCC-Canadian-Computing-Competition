@@ -47,6 +47,6 @@ int main()
 		b.push_back(s);
 	}
 	if(computeVec(a, b)){
-		cout << "YES" << endl;;
-	}else cout << "NO" << endl;
+		cout << "good" << endl;;
+	}else cout << "bad" << endl;
 }
