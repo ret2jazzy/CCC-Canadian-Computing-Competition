@@ -11,6 +11,7 @@ bool CheckAnagram(string &f, string &m)
 		for(int g = 0; g < m.size(); ++g){
 			if(m[g] == f[k]){
 				f[k] = '#';
+				m[g] = '&';
 				++q;
 			}
 		}
@@ -20,7 +21,7 @@ bool CheckAnagram(string &f, string &m)
 				++q;
 			}
 	}
-	if (q == f.size()){
+	if (q == m.size()){
 		return true;
 	}
 	else{
@@ -33,6 +34,6 @@ int main()
 	string s;
 	string z;
 	cin >> s >> z;
-	cout << (CheckAnagram(s, z) ? "N" : "Y") << endl;
+	cout << (CheckAnagram(s, z) ? "Y" : "N") << endl;
 	return 0;
 }
