@@ -34,6 +34,6 @@ int main()
 	string s;
 	string z;
 	cin >> s >> z;
-	cout << (CheckAnagram(s, z) ? "Y" : "N") << endl;
+	cout << (CheckAnagram(s, z) ? "A" : "N") << endl;
 	return 0;
 }
