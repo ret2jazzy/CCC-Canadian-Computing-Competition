@@ -6,6 +6,7 @@ using namespace std;
 
 vector<long> lol;
 int s;
+bool ans = true;
 
 void takeinput()
 {
@@ -21,25 +22,26 @@ bool desc(int y, int z){return y > z;}
 
 void compute()
 {
+	ans = false;
 	for(int i = 0; i < lol.size();++i){
 		while((i+1 < lol.size()) && (lol[i] == lol[i+1])){
 			lol[i] = lol[i] + lol[i+1];
 			lol.erase(lol.begin() + i + 1);
+			ans = true;
 		}
 		while((i+2 < lol.size()) && (lol[i] == lol[i+2])){
 			lol[i] = lol[i] + lol[i+1] + lol[i+2];
 			lol.erase(lol.begin() + i + 1);
 			lol.erase(lol.begin() + i + 1);
+			ans = true;
 		}
 	}
 }
 
 void finalans()
 {
-	int sd = 0;
-	while (sd < 100){
+	while (ans){
 		compute();
-		++sd;
 	}
 	sort(lol.begin(), lol.end(), desc);
 }
