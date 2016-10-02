@@ -17,6 +17,7 @@ bool desc(string l, string m){return l.size() > m.size();}
 
 void CheckPal()
 {
+	ans.push_back(input);
 	for(int i = 0; i < input.size(); ++i){
 		for(int t = i; t < input.size(); ++t){
 			ans.push_back(input.substr(i,t));
