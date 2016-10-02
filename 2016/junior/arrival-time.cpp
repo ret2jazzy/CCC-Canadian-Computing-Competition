@@ -2,12 +2,27 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <cstdlib>
 
 using namespace std;
 string inp;
 vector<int> lol;
 vector<string> fag;
 int tm;
+
+
+int roundUp(int numToRound)
+{
+
+    int remainder = abs(numToRound) % 10;
+    if (remainder == 0)
+        return numToRound;
+
+    if (numToRound < 0)
+        return -(abs(numToRound) - remainder);
+    else
+        return numToRound + 10 - remainder;
+}
 
 void Takeinput()
 {
@@ -21,12 +36,7 @@ void Takeinput()
 		istringstream ( word ) >> xyz;
     	lol.push_back(xyz);
 	}
-	if(lol[1] == 20){
-		lol[1] = 33;
-	}
-	if(lol[1] == 40){
-		lol[1] = 67;
-	}
+	lol[1] = lol[1] * 100/60;
 	tm = lol[0] * 100 + lol[1];
 }
 
@@ -95,19 +105,23 @@ void realvl()
 	if (fag[1] == "33"||fag[1] == "34"||fag[1] == "32"){
 		fag[1] = "20";
 	}
-	if(fag[1] == "50"){
+	else if(fag[1] == "50"){
 		fag[1] = "30";
 	}
-	if(fag[1] == "66"||fag[1] == "67"||fag[1] == "65"){
+	else if(fag[1] == "66"||fag[1] == "67"||fag[1] == "65"){
 		fag[1] = "40";
-	}
+	}else fag[1] = to_string(atoi(fag[1].c_str()) * 60/100);
 }
 
 int main()
 {
 	Takeinput();
-	compute();;
+	compute();
 	realvl();
-	cout << fag[0] << ":" << fag[1] << endl;
+	string s = to_string(roundUp(atoi(fag[1].c_str())));
+	if(s.size() != 2){
+		s += "0";
+	}
+	cout << fag[0] << ":" << s << endl;
 	return 0;
 }
